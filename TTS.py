@@ -4,19 +4,18 @@ import pyttsx3
 
 class TTS():
 
-    def __init__(self):#, voz, voices):
+    # Inicializa o módulo pyttsx3 ao Inicializar a classe
+    def __init__(self):
         self.voz = pyttsx3.init()
         self.voices = self.voz.getProperty('voices')
 
-        #self.voz = voz
-        #self.voices = voices
-
-
-    def Bot_fala(self, texto='texto padrão'):
+    # Falar texto
+    def Fala(self, texto='texto padrão'):
         self.voz.say(texto)#Voz pt br do teste = Letícia-F123
         self.voz.runAndWait()
 
-    def Bot_ouve(self):#Resolver depois
+    # Ouvir Fala do microfone
+    def Ouve(self):#Resolver depois
 
         # Recog = Speech.Recognizer()
         #
@@ -26,7 +25,8 @@ class TTS():
         #         print(Recog.recognize_google(Audio, language='pt'))#Reconhecimento de voz online
         pass
 
-    def Bot_debug(self):
+    # Exibição das opções
+    def Debug(self):
         # print(self.voices)
          for voice in self.voices:
               print(f'voice.name = {voice.name}')
@@ -46,6 +46,7 @@ class TTS():
             #       print(self.voz.setProperty('voice', voice.id))
                 #print(f'voices[{x}].id = {self.voices[x].id}')
 
+    # Alterar uma ou mais configurações do modelo de voz
     def Config(self, **kwargs):#não detecta se a voz estiver escrita errada
         voz_modelo = kwargs.get('voice')
         volume = kwargs.get('volume')
